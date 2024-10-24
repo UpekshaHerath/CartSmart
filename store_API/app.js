@@ -3,6 +3,7 @@ const app = express();
 require("dotenv").config();
 
 const connectDB = require("./db/connect");
+const productRouter = require("./routes/products");
 
 
 // async errors
@@ -19,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 // products route
-
+app.use('/api/v1/products', productRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
